@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги.бг - Начало</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="create-ad.html">Създаване на обява</a></li>
+                <li><a href="chat.html">Чат</a></li>
+                <li><a href="offers.html">Обяви</a></li>
+                <li><a href="login.html">Вход</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="intro">
+            <h1 class="fade-in">Добре дошли в Услуги.бг!</h1>
+            <p class="fade-in">Ние предлагаме платформа за създаване, намиране и приемане на обяви за всякакви услуги. Независимо дали търсите помощ в дома, строителни услуги или професионални IT решения, тук ще намерите най-доброто предложение.</p>
+        </section>
+
+        <section id="features">
+            <h2 class="fade-in">Какво предлагаме?</h2>
+            <div class="feature-cards">
+                <div class="feature-card fade-in">
+                    <h3>Широк избор на услуги</h3>
+                    <p>Разнообразие от услуги във всички области - от IT до строителство и маркетинг.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <h3>Лесно създаване на обяви</h3>
+                    <p>Бързо и лесно публикувайте вашата обява, за да намерите необходимата помощ или да предложите услугите си.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <h3>Бързо свързване</h3>
+                    <p>Свържете се директно с предлагащите услуги и вземете бързи решения за вашите нужди.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2 class="fade-in">Нашата галерия</h2>
+            <div class="image-gallery">
+                <img src="cleaning.webp" alt="Услуга 1" class="fade-in">
+                <img src="gardening.webp" alt="Услуга 2" class="fade-in">
+                <img src="IT.jpg" alt="Услуга 3" class="fade-in">
+                <img src="plaster.jpeg" alt="Услуга 4" class="fade-in">
+                <img src="dogwalk.jpg" alt="Услуга 5" class="fade-in">
+                <img src="iron.webp" alt="Услуга 6" class="fade-in">
+            </div>
+        </section>
+
+        <section id="testimonials">
+            <h2 class="fade-in">Какво казват нашите потребители?</h2>
+            <div class="testimonial-cards">
+                <div class="testimonial-card fade-in">
+                    <p>"Използвах Услуги.бг за да намеря строителни услуги и бях много доволен от бързото обслужване и качеството на услугата!"</p>
+                    <p><strong>Иван Петров</strong></p>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <p>"Страхотен сайт! Лесно публикувах моята обява за IT услуги и получих отговор веднага."</p>
+                    <p><strong>Мария Георгиева</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="call-to-action">
+            <h2 class="fade-in">Готови ли сте да започнете?</h2>
+    <p class="fade-in">Регистрирайте се сега и започнете да създавате обяви или да търсите услуги, които отговарят на вашите нужди.</p>
+    <a href="create-ad.html" class="cta-button fade-in cta-spacing">Създайте обява</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Услуги.бг. Всички права запазени.</p>
+    </footer>
+
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", function () {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(function (element) {
+                element.classList.add('visible');
+            });
+        });
+    </script>
+</body>
+</html>

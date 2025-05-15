@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Създаване на обява - Услуги.бг</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="create-ad.html">Създаване на обява</a></li>
+                <li><a href="offers.html">Обяви</a></li>
+                <li><a href="chat.html">Чат</a></li>
+                <li><a href="login.html">Вход</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Създаване на обява</h1>
+        <section id="create-ad-section">
+            <h1>Създаване на обява</h1>
+            <form id="ad-form">
+                <label for="title">Заглавие на обявата:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="description">Описание:</label>
+                <textarea id="description" name="description" rows="5" required></textarea>
+
+                <label for="category">Категория:</label>
+                <select id="category" name="category" required>
+                    <option value="it">IT</option>
+                    <option value="строителство">Строителство</option>
+                    <option value="услуги">Услуги</option>
+                    <option value="друго">Друго</option>
+                </select>
+
+                <button type="submit">Публикувай</button>
+            </form>
+            <div id="ads-list"></div>
+        </section>
+    </main>
+</body>
+</html>
