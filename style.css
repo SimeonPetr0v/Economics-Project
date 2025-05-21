@@ -262,3 +262,25 @@ footer {
     display: inline-block;
     margin-top: 20px; /* или пробвай 30px за още по-голямо разстояние */
 }
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #FFD700; /* Златисто при задържане */
+}
+.social-icons a {
+    text-decoration: none; /* Премахва долната черта */
+    color: white;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+    display: inline-block; /* Уверява, че няма неочаквано поведение */
+}
