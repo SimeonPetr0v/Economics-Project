@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Услуги.бг - За нас</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+ 
+        header {
+            background-color: #4CAF50;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+ 
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+ 
+        nav ul li {
+            margin: 0 15px;
+        }
+ 
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+ 
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+ 
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+ 
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 30px;
+        }
+ 
+        #about {
+            padding: 50px 20px;
+            background-color: #f4f4f4;
+        }
+ 
+        .team-members {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+ 
+        .team-member {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 45%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+ 
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+ 
+        .mission-statement {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+ 
+        .social-icons {
+            margin-top: 10px;
+        }
+ 
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+ 
+        .social-icons a:hover {
+            color: #FFD700;
+        }
+ 
+        .fade-in {
+            opacity: 0;
+            transition: opacity 2s ease-in;
+        }
+ 
+        .visible {
+            opacity: 1;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="about.html">За нас</a></li>
+                <li><a href="create-ad.html">Създаване на обява</a></li>
+                <li><a href="chat.html">Чат</a></li>
+                <li><a href="offers.html">Обяви</a></li>
+                <li><a href="login.html">Вход</a></li>
+            </ul>
+        </nav>
+    </header>
+ 
+    <main>
+        <section id="about" class="fade-in">
+            <h1>За нас</h1>
+            <p>Услуги.бг е водеща платформа за свързване на хора, които търсят услуги с тези, които ги предлагат. Нашата мисия е да улесним процеса на намиране на надеждни изпълнители за всякакви нужди.</p>
+ 
+            <div class="mission-statement fade-in">
+                <h2>Нашата мисия</h2>
+                <p>Ние вярваме, че всеки човек трябва да има лесен достъп до качествени услуги, независимо дали става въпрос за дома, бизнеса или личните нужди. Нашата платформа създава прозрачна и сигурна среда за взаимодействие между клиенти и изпълнители.</p>
+            </div>
+ 
+            <h2 class="fade-in">Нашият екип</h2>
+            <div class="team-members">
+                <div class="team-member fade-in">
+                    <img src="team1.jpg" alt="Иван Иванов">
+                    <h3>Иван Иванов</h3>
+                    <p>Основател и CEO</p>
+                    <p>Иван има над 10 години опит в разработката на софтуерни решения и управлението на технологични проекти.</p>
+                </div>
+                <div class="team-member fade-in">
+                    <img src="team2.jpg" alt="Мария Георгиева">
+                    <h3>Мария Георгиева</h3>
+                    <p>Маркетинг директор</p>
+                    <p>Мария е отговорна за маркетинговата стратегия и комуникацията с нашите потребители.</p>
+                </div>
+                <div class="team-member fade-in">
+                    <img src="team3.jpg" alt="Петър Димитров">
+                    <h3>Петър Димитров</h3>
+                    <p>Разработчик</p>
+                    <p>Петър е част от екипа, който изгражда и поддържа нашата платформа.</p>
+                </div>
+                <div class="team-member fade-in">
+                    <img src="team4.jpg" alt="Анна Стоянова">
+                    <h3>Анна Стоянова</h3>
+                    <p>Поддръжка на клиенти</p>
+                    <p>Анна е вашата точка за контакт при всякакви въпроси или проблеми.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+ 
+    <footer>
+        <p>&copy; 2025 Услуги.бг. Всички права запазени.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/uslugi_bg?igsh=ajZvemZyaG82aXNr" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@uslugibg_?_t=ZN-8wXoQutQE7C&_r=1" target="_blank" aria-label="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+    </footer>
+ 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(function (element) {
+                element.classList.add('visible');
+            });
+        });
+    </script>
+</body>
+</html>

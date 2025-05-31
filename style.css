@@ -260,7 +260,7 @@ footer {
 }
 .cta-spacing {
     display: inline-block;
-    margin-top: 20px; /* или пробвай 30px за още по-голямо разстояние */
+    margin-top: 20px; 
 }
 .social-icons {
     margin-top: 10px;
@@ -274,13 +274,13 @@ footer {
 }
 
 .social-icons a:hover {
-    color: #FFD700; /* Златисто при задържане */
+    color: #FFD700; 
 }
 .social-icons a {
-    text-decoration: none; /* Премахва долната черта */
+    text-decoration: none; 
     color: white;
     font-size: 24px;
     margin: 0 10px;
     transition: color 0.3s ease;
-    display: inline-block; /* Уверява, че няма неочаквано поведение */
+    display: inline-block; 
 }

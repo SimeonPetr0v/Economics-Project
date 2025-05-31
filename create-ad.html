@@ -1,46 +1,92 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Създаване на обява - Услуги.бг</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Създаване на обява - Услуги.бг</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Начало</a></li>
-                <li><a href="create-ad.html">Създаване на обява</a></li>
-                <li><a href="offers.html">Обяви</a></li>
-                <li><a href="chat.html">Чат</a></li>
-                <li><a href="login.html">Вход</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h1>Създаване на обява</h1>
-        <section id="create-ad-section">
-            <h1>Създаване на обява</h1>
-            <form id="ad-form">
-                <label for="title">Заглавие на обявата:</label>
-                <input type="text" id="title" name="title" required>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Начало</a></li>
+        <li><a href="create-ad.html">Създаване на обява</a></li>
+        <li><a href="offers.html">Обяви</a></li>
+        <li><a href="chat.html">Чат</a></li>
+        <li><a href="login.html">Вход</a></li>
+      </ul>
+    </nav>
+  </header>
 
-                <label for="description">Описание:</label>
-                <textarea id="description" name="description" rows="5" required></textarea>
+  <main>
+    <h1>Създаване на обява</h1>
+    <section id="create-ad-section">
+      <form id="ad-form">
+        <label for="title">Заглавие на обявата:</label>
+        <input type="text" id="title" name="title" required />
 
-                <label for="category">Категория:</label>
-                <select id="category" name="category" required>
-                    <option value="it">IT</option>
-                    <option value="строителство">Строителство</option>
-                    <option value="услуги">Услуги</option>
-                    <option value="друго">Друго</option>
-                </select>
+        <label for="description">Описание:</label>
+        <textarea id="description" name="description" rows="5" required></textarea>
 
-                <button type="submit">Публикувай</button>
-            </form>
-            <div id="ads-list"></div>
-        </section>
-    </main>
+        <label for="category">Категория:</label>
+        <select id="category" name="category" required>
+          <option value="it">IT</option>
+          <option value="строителство">Строителство</option>
+          <option value="услуги">Услуги</option>
+          <option value="друго">Друго</option>
+        </select>
+
+        <button type="submit">Публикувай</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAWE_CHoUyxLj1izLRc7ZGlqjvJjAt6W1k",
+      authDomain: "uslugibg-9435f.firebaseapp.com",
+      projectId: "uslugibg-9435f",
+      storageBucket: "uslugibg-9435f.firebasestorage.app",
+      messagingSenderId: "741699920709",
+      appId: "1:741699920709:web:d65da9d23e7bb395f8942c",
+      measurementId: "G-EENFHCR14D"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    document.getElementById('ad-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const title = document.getElementById('title').value.trim();
+      const description = document.getElementById('description').value.trim();
+      const category = document.getElementById('category').value;
+
+      if (!title || !description || !category) {
+        alert("Моля, попълнете всички полета!");
+        return;
+      }
+
+      try {
+        await addDoc(collection(db, "ads"), {
+          title,
+          description,
+          category,
+          createdAt: serverTimestamp()
+        });
+
+        alert("Обявата е успешно публикувана!");
+        window.location.href = "offers.html"; 
+      } catch (error) {
+        console.error("Грешка при публикуване:", error);
+        alert("Възникна грешка. Моля, опитайте отново.");
+      }
+    });
+  </script>
 </body>
 </html>

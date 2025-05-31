@@ -1,80 +1,76 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Обяви - Услуги.бг</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Обяви - Услуги.бг</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Начало</a></li>
-                <li><a href="create-ad.html">Създаване на обява</a></li>
-                <li><a href="chat.html">Чат</a></li>
-                <li><a href="offers.html">Обяви</a></li>
-                <li><a href="login.html">Вход</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Начало</a></li>
+        <li><a href="create-ad.html">Създаване на обява</a></li>
+        <li><a href="offers.html">Обяви</a></li>
+        <li><a href="chat.html">Чат</a></li>
+        <li><a href="login.html">Вход</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <h1 class="fade-in">Актуални обяви</h1>
-        
-        <div class="offer-list">
-           
-            <div class="offer-item fade-in">
-                <h3>Търся електричар за ремонт на апартамент</h3>
-                <p>Необходим ми е квалифициран електричар за ремонт на електрическа инсталация в апартамент в центъра на София.</p>
-                <button class="contact-btn">Свържи се</button>
-                <button class="accept-btn">Приеми обявата</button>
-            </div>
+  <main>
+    <h1>Актуални обяви</h1>
+    <div class="offer-list" id="offer-list"></div>
+  </main>
 
-            <div class="offer-item fade-in">
-                <h3>Търся градинар за поддръжка на градина</h3>
-                <p>Нуждая се от градинар за редовна поддръжка на градина в предградията на София.</p>
-                <button class="contact-btn">Свържи се</button>
-                <button class="accept-btn">Приеми обявата</button>
-            </div>
+  <footer>
+    <p>&copy; 2025 Услуги.бг. Всички права запазени.</p>
+  </footer>
 
-            <div class="offer-item fade-in">
-                <h3>Почистване на дома</h3>
-                <p>Търся някой за професионално почистване на апартамент в Пловдив. Включва и пране на килими.</p>
-                <button class="contact-btn">Свържи се</button>
-                <button class="accept-btn">Приеми обявата</button>
-            </div>
-        </div>
-    </main>
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+    import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-firestore.js";
 
-    <footer>
-        <p>&copy; 2025 Услуги.бг. Всички права запазени.</p>
-    </footer>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAWE_CHoUyxLj1izLRc7ZGlqjvJjAt6W1k",
+      authDomain: "uslugibg-9435f.firebaseapp.com",
+      projectId: "uslugibg-9435f",
+      storageBucket: "uslugibg-9435f.firebasestorage.app",
+      messagingSenderId: "741699920709",
+      appId: "1:741699920709:web:d65da9d23e7bb395f8942c",
+      measurementId: "G-EENFHCR14D"
+    };
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const fadeEls = document.querySelectorAll(".fade-in");
-            fadeEls.forEach((el, index) => {
-                setTimeout(() => {
-                    el.classList.add("show");
-                }, index * 300); 
-            });
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
-            
-            const contactButtons = document.querySelectorAll('.contact-btn');
-            contactButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    alert('Ще се свържем с вас скоро!');
-                });
-            });
+    document.addEventListener("DOMContentLoaded", async () => {
+      const offerList = document.getElementById("offer-list");
 
-            const acceptButtons = document.querySelectorAll('.accept-btn');
-            acceptButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    alert('Вие успешно приехте обявата!');
-                });
-            });
+      try {
+        const q = query(collection(db, "ads"), orderBy("createdAt", "desc"));
+        const snapshot = await getDocs(q);
+
+        snapshot.forEach(doc => {
+          const ad = doc.data();
+          const adElement = document.createElement("div");
+          adElement.className = "offer-item";
+          adElement.innerHTML = `
+            <h3>${ad.title}</h3>
+            <p>${ad.description}</p>
+            <p><strong>Категория:</strong> ${ad.category}</p>
+            <button class="contact-btn">Свържи се</button>
+            <button class="accept-btn">Приеми обявата</button>
+          `;
+          offerList.appendChild(adElement);
         });
-    </script>
+      } catch (error) {
+        console.error("Грешка при зареждане:", error);
+        alert("Възникна грешка. Моля, опитайте отново.");
+      }
+    });
+  </script>
 </body>
 </html>
